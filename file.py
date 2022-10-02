@@ -1,8 +1,11 @@
+from tkinter import E
+
+
 file = open('liczby.txt', 'r')
 lines = file.readlines()
 a = []
 c = []
-
+g = []
 for line in lines:
         line = int(line.replace('\n', ''))
         a.append(line)
@@ -14,36 +17,50 @@ def max_value():
 def sort_value():
     print('posortowana wartosci:', sorted(a, reverse=True))
 
-def max_value_alg(x):
+def cur_max(s):
+    cur_max = s[0]
+    for x in s :
+        if x > cur_max:
+            cur_max = x
+    print(cur_max)
+    return cur_max
 
-    if x == 0:
-        return 0
 
-    crn_max = x[0]
-    for b in x:
-        if b > crn_max:
-            crn_max = b
-    print(crn_max)
-    return x
-
-def odd_num(b):
+def odd(b):
     for x in b:
         if x%2 != 0:
             c.append(x)
     print(c)
     return c
 
-def max_odd_num(m):
-    value = odd_num(m)  
-    v2 = max_value_alg(value)
+def even(b):
+    for x in b:
+        if x%2 == 0:
+            g.append(x)
+    print(g)
+    return g
+
+def min_p(f):
+    curr_min = f[0]
+    for x in f:
+        if x < curr_min:
+            curr_min = x
+    print(curr_min)
+    return curr_min
+
+def max_odd(j):
+    h = odd(j)
+    cur_max(h)
+
+def max_even(t):
+    e = even(t)
+    cur_max(e)
 
 
-    
 def main():
 
-    max_odd_num(a)
-
-
+    max_odd(a)
+    max_even(a)
 
 main()
 
